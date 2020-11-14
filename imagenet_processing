@@ -1,0 +1,16 @@
+# preprocess imagenet data file
+# 1.download imagenet original pictures from imagenet.org
+tar -xvf  ILSVRC2012_img_train.tar -C 指定目录
+cd 指定目录
+vim unzip.sh
+
+#====以下是sh中的内容====
+dir=./
+for x in `ls *.tar`
+do
+  filename=`basename $x .tar`
+  mkdir $filename
+  tar -xvf $x -C ./$filename
+ done
+ rm *.tar
+ #========================
